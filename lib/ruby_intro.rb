@@ -7,11 +7,27 @@ def sum arr
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr.empty?
+    return 0
+  elsif arr.length <= 1
+    return arr[0]
+  else
+    arr.sort!
+    arr.reverse!
+    return arr[0] + arr[1]
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr.empty? || arr.length <= 1 # Check if the array is empty or has only one element
+    return false
+  else
+    if !arr.combination(2).find(proc {false}) {|x,y| x + y == n}
+      return false
+    else
+      return true
+    end
+  end
 end
 
 # Part 2
