@@ -56,8 +56,19 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :price,:isbn  #Setter and Getter
+  def initialize(isbn,price)
+    raise ArgumentError if !isbn.is_a?(String) || isbn == ''    #Raise Error if ISBN is invalid
+    raise ArgumentError if price == 0 || price < 0              #Raise Error if Price is zero or less than zero
+    @isbn = isbn
+    @price = Float(price)
+  end
+  
+  def price_as_string
+    "$#{sprintf("%.2f", price)}"      #Use sprintf to format string (dd.dddd -> dd.dd )
+  end
 end
 
-puts binary_multiple_of_4?('')
+test = BookInStock.new('7AB', 33.957)
+puts test.price_as_string
 
