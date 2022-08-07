@@ -3,18 +3,18 @@
 # Part 1
 
 def sum arr
-  arr.sum
+  arr.sum     # Return sum of given array
 end
 
 def max_2_sum arr
-  if arr.empty?
-    return 0
-  elsif arr.length <= 1
+  if arr.empty?                 # Check if the given array is empty
+    return 0                    
+  elsif arr.length <= 1         # Check for the array length
     return arr[0]
   else
-    arr.sort!
+    arr.sort!                   # Sort(Ascending min..max) And Reverse(descending max..min)
     arr.reverse!
-    return arr[0] + arr[1]
+    return arr[0] + arr[1]      # Return sum of first two element in descending array
   end
 end
 
