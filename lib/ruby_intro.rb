@@ -37,17 +37,17 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  if s == "" || s.downcase.start_with?(/[^a-z]/) # Check if the  given string is empty or didn't start with a-z(nonletters)
+  if s == "" || s.downcase.start_with?(/[^a-z]/)  # Check if the  given string is empty or didn't start with a-z(nonletters)
     return false
   else
-    return !s.downcase.start_with?(/[aeiou]/) # Check if the given string start with consonant (a, e, i, o, u)
+    return !s.downcase.start_with?(/[aeiou]/)     # Check if the given string start with consonant (a, e, i, o, u)
   end
 end
 
 def binary_multiple_of_4? s
-  binary = /^[1|0]+/.match(s)
+  binary = /^[1|0]+/.match(s)               # Check if the string is match the binary format
   if binary 
-    return (binary.to_s.to_i(2) % 4 == 0)
+    return (binary.to_s.to_i(2) % 4 == 0)   # We check for the multiple of 4 by modding it and return
   else
     return false
   end
@@ -56,16 +56,16 @@ end
 # Part 3
 
 class BookInStock
-  attr_accessor :price,:isbn  #Setter and Getter
+  attr_accessor :price,:isbn                                    # Setter and Getter
   def initialize(isbn,price)
-    raise ArgumentError if !isbn.is_a?(String) || isbn == ''    #Raise Error if ISBN is invalid
-    raise ArgumentError if price == 0 || price < 0              #Raise Error if Price is zero or less than zero
+    raise ArgumentError if !isbn.is_a?(String) || isbn == ''    # Raise Error if ISBN is invalid
+    raise ArgumentError if price == 0 || price < 0              # Raise Error if Price is zero or less than zero
     @isbn = isbn
     @price = Float(price)
   end
   
   def price_as_string
-    "$#{sprintf("%.2f", price)}"      #Use sprintf to format string (dd.dddd -> dd.dd )
+    "$#{sprintf("%.2f", price)}"                                # Use sprintf to format string (dd.dddd -> dd.dd )
   end
 end
 
