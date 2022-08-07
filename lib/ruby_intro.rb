@@ -47,7 +47,7 @@ end
 def binary_multiple_of_4? s
   binary = /^[1|0]+/.match(s)               # Check if the string is match the binary format
   if binary 
-    return (binary.to_s.to_i(2) % 4 == 0)   # We check for the multiple of 4 by modding it and return
+    return (binary.to_s.to_i(2) % 4 == 0)   # We check for the multiple of 4 by modding it then compare to 0 and return the logic
   else
     return false
   end
